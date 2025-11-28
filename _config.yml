@@ -1,0 +1,14 @@
+# Site settings
+title: Bogdan Guranda
+description: Personal website
+baseurl: ""
+url: "https://bogdanguranda.github.io"
+permalink: pretty
+
+author:
+  name: Bogdan Guranda
+  github: bogdanguranda
+  linkedin: bogdan-guranda
+
+
+# Build settings
