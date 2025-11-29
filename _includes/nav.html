@@ -1,0 +1,63 @@
+<nav class="main-nav">
+    {% for item in site.nav %}
+    {% assign item_url = item.url | default: '#' %}
+    {% assign is_active = false %}
+
+    <!-- Check if current page belongs to this top-level item -->
+    {% if page.url == item_url or page.url contains item_url and item_url != '/' %}
+    {% assign is_active = true %}
+    {% endif %}
+
+    {% if item.subnav %}
+    <div class="dropdown {% if is_active %}active{% endif %}">
+        <a href="{{ item_url }}">{{ item.title }}</a>
+        <div class="dropdown-content">
+            {% for sub in item.subnav %}
+            {% if sub.subnav %}
+            <div class="dropdown-submenu">
+                <a href="{{ sub.url }}">{{ sub.title }}</a>
+                <div class="dropdown-content">
+                    {% for sub2 in sub.subnav %}
+                    <a href="{{ sub2.url }}">{{ sub2.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <a href="{{ sub.url }}">{{ sub.title }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <a href="{{ item_url }}" {% if is_active %}class="active" {% endif %}>
+        {{ item.title }}
+    </a>
+    {% endif %}
+    {% endfor %}
+</nav>
+
+<!-- BREADCRUMBS – appears on all pages except homepage -->
+{% unless page.url == '/' or page.url == '/index.html' %}
+<nav class="breadcrumbs">
+    <div class="container">
+        <a href="/" class="breadcrumb-home">🏠</a>
+        <span class="separator">></span>
+
+        {% assign path_parts = page.url | remove_first: '/' | split: '/' %}
+        {% assign built_path = '' %}
+
+        {% for part in path_parts %}
+        {% assign built_path = built_path | append: '/' | append: part %}
+        {% if forloop.last %}
+        <span class="breadcrumb-current">
+            {{ page.title | default: part | replace: '-', ' ' | capitalize }}
+        </span>
+        {% else %}
+        {% assign crumb_title = part | replace: '-', ' ' | capitalize %}
+        <a href="{{ built_path | relative_url }}">{{ crumb_title }}</a>
+        <span class="separator">></span>
+        {% endif %}
+        {% endfor %}
+    </div>
+</nav>
+{% endunless %}

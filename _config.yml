@@ -1,4 +1,3 @@
-# Site settings
 title: Bogdan Guranda
 description: Personal website
 baseurl: ""
@@ -10,5 +9,92 @@ author:
   github: bogdanguranda
   linkedin: bogdan-guranda
 
+collections:
+  pages:
+    output: true
 
-# Build settings
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: category
+  - scope:
+      path: ""
+    values:
+      layout: category
+
+# ─── Navigation ───
+nav:
+  - title: About
+    url: /
+  - title: Coding
+    url: /coding/
+    subnav:
+      - title: Bachelor's Thesis
+        url: /coding/bachelors-thesis/
+      - title: Games
+        url: /coding/games/
+      - title: Finance
+        url: /coding/finance/
+        subnav:
+          - title: Trading Assistant
+            url: /coding/finance/trading-assistant/
+      - title: Tooling
+        url: /coding/tooling/
+        subnav:
+          - title: Git
+            url: /coding/tooling/git/
+  - title: History
+    url: /history/
+    subnav:
+      - title: Australia
+        url: /history/australia/
+      - title: Europe
+        url: /history/europe/
+  - title: Finance
+    url: /finance/
+    subnav:
+      - title: Investing
+        url: /finance/investing/
+      - title: Day Trading
+        url: /finance/day-trading/
+  - title: Books
+    url: /books/
+    subnav:
+      - title: Must-Read List
+        url: /books/must-read-list/
+      - title: Classics
+        url: /books/classics/
+      - title: History
+        url: /books/history/
+      - title: Finance
+        url: /books/finance/
+      - title: Psychology
+        url: /books/psychology/
+      - title: Philosophy
+        url: /books/philosophy/
+      - title: Personal Development
+        url: /books/personal-development/
+  - title: Lifestyle
+    url: /lifestyle/
+    subnav:
+        - title: My Philosophy
+          url: /lifestyle/my-philosophy/
+        - title: Tennis
+          url: /lifestyle/tennis/
+        - title: Wim Hof Method
+          url: /lifestyle/wim-hof-method/
+        - title: Travels
+          url: /lifestyle/travels/
+          subnav:
+            - title: Australia
+              url: /lifestyle/travels/australia/
+            - title: Israel
+              url: /lifestyle/travels/israel/
+            - title: Europe
+              url: /lifestyle/travels/europe/
+            - title: USA
+              url: /lifestyle/travels/usa/
+  - title: Contact
+    url: /contact/

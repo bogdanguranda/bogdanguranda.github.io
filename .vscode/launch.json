@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Jekyll Serve (Homebrew Ruby)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "/opt/homebrew/opt/ruby/bin/bundle",
+            "runtimeArgs": [
+                "exec",
+                "jekyll",
+                "serve",
+                "--livereload",
+                "--open-url"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}
