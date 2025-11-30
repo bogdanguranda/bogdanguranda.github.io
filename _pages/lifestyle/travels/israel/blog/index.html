@@ -1,17 +1,14 @@
 ---
 layout: category
-title: Israel – Travel Journal
+title: Israel – Blog
 permalink: /lifestyle/travels/israel/blog/
+description: "Newest entries first — stories from the road."
 ---
 
-<h1>Travel Journal: Israel</h1>
-<p class="category-intro">Newest entries first — stories from the road.</p>
-
 {% assign israel_posts = '' | split: ',' %}
-{% for page in site.pages %}
-{% if page.url contains '/lifestyle/travels/israel/blog/' and page.date and page.url !=
-'/lifestyle/travels/israel/blog/' %}
-{% assign israel_posts = israel_posts | push: page %}
+{% for p in site.pages %}
+{% if p.url contains '/lifestyle/travels/israel/blog/' and p.date and p.url != '/lifestyle/travels/israel/blog/' %}
+{% assign israel_posts = israel_posts | push: p %}
 {% endif %}
 {% endfor %}
 {% assign israel_posts = israel_posts | sort: 'date' | reverse %}
