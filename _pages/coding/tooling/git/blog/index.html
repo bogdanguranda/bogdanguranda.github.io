@@ -1,0 +1,28 @@
+---
+layout: category
+title: Git – Blog
+permalink: /coding/tooling/git/blog/
+description: "Blog posts about Git tools, tips, and tricks."
+---
+
+{% assign git_posts = '' | split: ',' %}
+{% for p in site.pages %}
+{% if p.url contains '/coding/tooling/git/blog/' and p.date and p.url != '/coding/tooling/git/blog/' %}
+{% assign git_posts = git_posts | push: p %}
+{% endif %}
+{% endfor %}
+{% assign git_posts = git_posts | sort: 'date' | reverse %}
+
+{% if git_posts.size > 0 %}
+<div class="blog-list">
+    {% for post in git_posts %}
+    <a href="{{ post.url }}" class="blog-card">
+        <div class="blog-card-date">{{ post.date | date: "%b %d, %Y" }}</div>
+        <h3>{{ post.title }}</h3>
+        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<p class="category-intro">No posts yet… coming soon!</p>
+{% endif %}
