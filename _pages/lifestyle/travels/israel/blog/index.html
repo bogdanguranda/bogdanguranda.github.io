@@ -1,0 +1,31 @@
+---
+layout: category
+title: Israel – Travel Journal
+permalink: /lifestyle/travels/israel/blog/
+---
+
+<h1>Travel Journal: Israel</h1>
+<p class="category-intro">Newest entries first — stories from the road.</p>
+
+{% assign israel_posts = '' | split: ',' %}
+{% for page in site.pages %}
+{% if page.url contains '/lifestyle/travels/israel/blog/' and page.date and page.url !=
+'/lifestyle/travels/israel/blog/' %}
+{% assign israel_posts = israel_posts | push: page %}
+{% endif %}
+{% endfor %}
+{% assign israel_posts = israel_posts | sort: 'date' | reverse %}
+
+{% if israel_posts.size > 0 %}
+<div class="blog-list">
+    {% for post in israel_posts %}
+    <a href="{{ post.url }}" class="blog-card">
+        <div class="blog-card-date">{{ post.date | date: "%b %d, %Y" }}</div>
+        <h3>{{ post.title }}</h3>
+        {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+    </a>
+    {% endfor %}
+</div>
+{% else %}
+<p class="category-intro">No posts yet… coming soon!</p>
+{% endif %}
