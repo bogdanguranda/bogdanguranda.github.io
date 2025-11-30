@@ -1,13 +1,13 @@
 ---
 layout: category
-title: Git – Blog
-permalink: /coding/tooling/git/blog/
-description: "Blog posts about Git tools, tips, and tricks."
+title: Python – Blog
+permalink: /coding/tooling/python/blog/
+description: "Blog posts about Python scripts and tips."
 ---
 
 {% assign posts = '' | split: ',' %}
 {% for p in site.pages %}
-{% if p.url contains '/coding/tooling/git/blog/' and p.date and p.url != '/coding/tooling/git/blog/' %}
+{% if p.url contains '/coding/tooling/python/blog/' and p.date and p.url != '/coding/tooling/python/blog/' %}
 {% assign posts = posts | push: p %}
 {% endif %}
 {% endfor %}

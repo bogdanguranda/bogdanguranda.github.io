@@ -5,17 +5,17 @@ permalink: /lifestyle/travels/israel/blog/
 description: "Newest entries first — stories from the road."
 ---
 
-{% assign israel_posts = '' | split: ',' %}
+{% assign posts = '' | split: ',' %}
 {% for p in site.pages %}
 {% if p.url contains '/lifestyle/travels/israel/blog/' and p.date and p.url != '/lifestyle/travels/israel/blog/' %}
-{% assign israel_posts = israel_posts | push: p %}
+{% assign posts = posts | push: p %}
 {% endif %}
 {% endfor %}
-{% assign israel_posts = israel_posts | sort: 'date' | reverse %}
+{% assign posts = posts | sort: 'date' | reverse %}
 
-{% if israel_posts.size > 0 %}
+{% if posts.size > 0 %}
 <div class="blog-list">
-    {% for post in israel_posts %}
+    {% for post in posts %}
     <a href="{{ post.url }}" class="blog-card">
         <div class="blog-card-date">{{ post.date | date: "%b %d, %Y" }}</div>
         <h3>{{ post.title }}</h3>

@@ -1,0 +1,67 @@
+---
+layout: blog-post
+title: Python script for generating Python test files
+date: 2024-04-30
+permalink: /coding/tooling/python/blog/python-test-files-generator/
+excerpt: Generate unit test placeholders for your Python project.
+---
+
+<h2>Python script for generating Python test files</h2>
+
+<p>Have you ever started writing your little Python side project without caring about writing tests? Yes, we all did.
+    And to be honest, most of the time we just code for fun and our project stays private (and dies private too :P). But
+    once in a while you get to actually use the program you wrote more often and want to maintain it and want to feel
+    safe whenever you make a change, that you didn't break something, so you decide to write some unit tests.</p>
+
+<p>But now you've wrote 50 files and a complex package structure and it would be quite a hassle to start creating test
+    files everywhere, so that was my problem, and here's a nice python script to automate just that.</p>
+
+<h2>Notes:</h2>
+<ul>
+    <li><strong>There's a folder exclusion functionality in-place</strong>, adapt it to your needs (add/remove to/from
+        the array):</li>
+</ul>
+<pre><code>exclude_folders = [".venv"]</code></pre>
+
+<ul>
+    <li><strong>By default it creates tests in a "tests" folder in the root folder</strong> which is the folder where
+        you run the script (usually should be root of your project).</li>
+</ul>
+
+<p>Feel free to adapt the script or improve according to your needs:</p>
+
+<pre><code>def create_test_files(root_dir, exclude_folders=None):
+    if exclude_folders is None:
+        exclude_folders = []
+
+    test_dir = os.path.join(root_dir, "tests")
+    os.makedirs(test_dir, exist_ok=True)
+
+    for root, _, files in os.walk(root_dir):
+        if any(folder in root for folder in exclude_folders):
+            continue
+
+        for file in files:
+            if file.startswith("test_"):
+                continue
+
+            if file.endswith(".py"):
+                module_name = os.path.splitext(file)[0]
+                test_module_name = "test_" + module_name
+
+                test_package_dir = os.path.join(test_dir, module_name)
+                os.makedirs(test_package_dir, exist_ok=True)
+
+                test_file_path = os.path.join(test_package_dir, f"{test_module_name}.py")
+                if not os.path.exists(test_file_path):
+                    with open(test_file_path, "w") as test_file:
+                        test_file.write(f"import unittest\n\n\n"
+                                        f"class {test_module_name.title()}(unittest.TestCase):\n"
+                                        f"    def test_placeholder(self):\n"
+                                        f"        self.assertTrue(True)\n")
+
+if __name__ == "__main__":
+    root_dir = os.getcwd()
+    exclude_folders = [".venv"]  # Add any folders you want to exclude
+    create_test_files(root_dir, exclude_folders)
+</code></pre>

@@ -45,6 +45,8 @@ nav:
         subnav:
           - title: Git
             url: /coding/tooling/git/
+          - title: Python
+            url: /coding/tooling/python/
   - title: History
     url: /history/
     subnav:
