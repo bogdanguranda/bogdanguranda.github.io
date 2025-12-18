@@ -33,6 +33,9 @@ nav:
     subnav:
       - title: Bachelor's Thesis
         url: /coding/bachelors-thesis/
+        subnav:
+          - title: Play the Game
+            url: /coding/bachelors-thesis/play/
       - title: Games
         url: /coding/games/
       - title: Finance

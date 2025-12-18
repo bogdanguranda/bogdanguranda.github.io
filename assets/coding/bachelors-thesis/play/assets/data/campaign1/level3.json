@@ -1,0 +1,260 @@
+{
+    "character": {
+        "position": {
+            "x": 5,
+            "y": 335
+        },
+        "texture": "swordsmanClassic",
+        "animations": [
+            {
+                "key": "walk",
+                "frameStart": 0,
+                "frameEnd": 7
+            },
+            {
+                "key": "attack",
+                "frameStart": 8,
+                "frameEnd": 15
+            },
+            {
+                "key": "jumpCrouch",
+                "frameStart": 16,
+                "frameEnd": 19
+            },
+            {
+                "key": "jumpJump",
+                "frameStart": 20,
+                "frameEnd": 23
+            },
+            {
+                "key": "jumpFall",
+                "frameStart": 24,
+                "frameEnd": 27
+            },
+            {
+                "key": "jumpLand",
+                "frameStart": 28,
+                "frameEnd": 31
+            },
+            {
+                "key": "crawl",
+                "frameStart": 32,
+                "frameEnd": 39
+            },
+            {
+                "key": "climb",
+                "frameStart": 40,
+                "frameEnd": 47
+            },
+            {
+                "key": "pick",
+                "frameStart": 83,
+                "frameEnd": 93
+            }
+        ]
+    },
+    "environment": [
+        {
+            "position": {
+                "x": 54,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 154,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 254,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 354,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 454,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 554,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 654,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 754,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 854,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 954,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1054,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1154,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1254,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1354,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1454,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1554,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1654,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1754,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 1854,
+                "y": 350
+            },
+            "texture": "horizontalWall"
+        },
+        {
+            "position": {
+                "x": 180,
+                "y": 325
+            },
+            "texture": "obstacle"
+        },
+        {
+            "position": {
+                "x": 280,
+                "y": 325
+            },
+            "texture": "obstacle"
+        },
+        {
+            "position": {
+                "x": 380,
+                "y": 325
+            },
+            "texture": "obstacle"
+        },
+        {
+            "position": {
+                "x": 480,
+                "y": 325
+            },
+            "texture": "obstacle"
+        },
+        {
+            "position": {
+                "x": 580,
+                "y": 325
+            },
+            "texture": "obstacle"
+        },
+        {
+            "position": {
+                "x": 680,
+                "y": 325
+            },
+            "texture": "obstacle"
+        },
+        {
+            "position": {
+                "x": 780,
+                "y": 325
+            },
+            "texture": "obstacle"
+        }
+    ],
+    "collectibles": [
+        {
+            "position": {
+                "x": 950,
+                "y": 320
+            },
+            "texture": "treasure"
+        }
+    ],
+    "enemies": [],
+    "objectives": {
+        "mainObjective": {
+            "type": "collect",
+            "text": "pick up the treasure!",
+            "data": [
+                "treasure"
+            ]
+        },
+        "secondaryObjective": null
+    }
+}
