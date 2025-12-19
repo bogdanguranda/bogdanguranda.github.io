@@ -26,80 +26,36 @@ defaults:
 
 # ─── Navigation ───
 nav:
-  - title: About
-    url: /
-  - title: Coding
-    url: /coding/
-    subnav:
-      - title: Bachelor's Thesis
-        url: /coding/bachelors-thesis/
-        subnav:
-          - title: Play the Game
-            url: /coding/bachelors-thesis/play/
-      - title: Games
-        url: /coding/games/
-      - title: Finance
-        url: /coding/finance/
-        subnav:
-          - title: Trading Assistant
-            url: /coding/finance/trading-assistant/
-      - title: Tooling
-        url: /coding/tooling/
-        subnav:
-          - title: Git
-            url: /coding/tooling/git/
-          - title: Python
-            url: /coding/tooling/python/
-  - title: History
-    url: /history/
-    subnav:
-      - title: Australia
-        url: /history/australia/
-      - title: Europe
-        url: /history/europe/
-  - title: Finance
-    url: /finance/
-    subnav:
-      - title: Investing
-        url: /finance/investing/
-      - title: Day Trading
-        url: /finance/day-trading/
-  - title: Books
-    url: /books/
-    subnav:
-      - title: Must-Read List
-        url: /books/must-read-list/
-      - title: Classics
-        url: /books/classics/
-      - title: History
-        url: /books/history/
-      - title: Finance
-        url: /books/finance/
-      - title: Psychology
-        url: /books/psychology/
-      - title: Philosophy
-        url: /books/philosophy/
-      - title: Personal Development
-        url: /books/personal-development/
-  - title: Lifestyle
-    url: /lifestyle/
-    subnav:
-        - title: My Philosophy
-          url: /lifestyle/my-philosophy/
-        - title: Tennis
-          url: /lifestyle/tennis/
-        - title: Wim Hof Method
-          url: /lifestyle/wim-hof-method/
-        - title: Travels
-          url: /lifestyle/travels/
-          subnav:
-            - title: Australia
-              url: /lifestyle/travels/australia/
-            - title: Israel
-              url: /lifestyle/travels/israel/
-            - title: Europe
-              url: /lifestyle/travels/europe/
-            - title: USA
-              url: /lifestyle/travels/usa/
   - title: Contact
-    url: /contact/
+    url: /
+  - title: Games
+    url: /games/
+    subnav:
+      - title: Logikids (Bacherlor's Thesis)
+        url: /games/logikids/
+  - title: Trading
+    url: /trading/
+    subnav:
+      - title: Trading Algo
+        url: /trading/trading-algo/
+      - title: Trading Assistant
+        url: /trading/trading-assistant/
+      - title: Trading Assistant Discord Bot
+        url: /trading/trading-assistant-discord-bot/
+      - title: Trading Risk Manager
+        url: /trading/trading-risk-manager/
+      - title: Trading Quotes X
+        url: /trading/trading-quotes-x/
+  - title: Blog
+    url: /blog/
+    subnav:
+      - title: Trading
+        url: /blog/trading/
+      - title: Coding
+        url: /blog/coding/
+      - title: History
+        url: /blog/history/
+      - title: Books
+        url: /blog/books/
+      - title: Travels
+        url: /blog/travels/
