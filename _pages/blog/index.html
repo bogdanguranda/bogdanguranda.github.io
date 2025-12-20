@@ -1,46 +1,8 @@
 ---
-layout: blog-section
+layout: category
 title: Blog
 permalink: /blog/
 description: "Articles and thoughts on various topics."
-show_all_posts: true
+toc: [{title: "Coding →", url: "/blog/coding/"}, {title: "Books →", url: "/blog/books/"}, {title: "Trading →", url:
+"/blog/trading/"}, {title: "Travels →", url: "/blog/travels/"}, {title: "History →", url: "/blog/history/"}]
 ---
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const urlParams = new URLSearchParams(window.location.search);
-        const tagFilter = urlParams.get('tag');
-
-        if (tagFilter) {
-            const posts = document.querySelectorAll('.blog-post-preview');
-            posts.forEach(function (post) {
-                const tags = post.querySelectorAll('.tag');
-                let hasTag = false;
-                tags.forEach(function (tag) {
-                    if (tag.textContent.toLowerCase().trim() === tagFilter.toLowerCase()) {
-                        hasTag = true;
-                        tag.style.background = '#58a6ff';
-                        tag.style.color = '#fff';
-                    }
-                });
-                if (!hasTag) {
-                    post.style.display = 'none';
-                }
-            });
-
-            // Update title to show filter
-            const h2 = document.querySelector('.blog-posts-list h2');
-            if (h2) {
-                h2.textContent = 'Posts tagged: ' + tagFilter;
-            }
-
-            // Highlight active tag in sidebar
-            document.querySelectorAll('.tag-cloud .tag').forEach(function (tag) {
-                if (tag.textContent.toLowerCase().trim() === tagFilter.toLowerCase()) {
-                    tag.style.background = '#58a6ff';
-                    tag.style.color = '#fff';
-                }
-            });
-        }
-    });
-</script>
