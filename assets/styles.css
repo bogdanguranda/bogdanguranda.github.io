@@ -443,7 +443,7 @@ main {
 
 /* Table of Contents on country page */
 .toc {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     background: #161b22;
     padding: 2rem;
@@ -571,7 +571,7 @@ figcaption {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .photo-grid-6 {
         grid-template-columns: 1fr;
     }
@@ -601,7 +601,7 @@ figcaption {
 }
 
 /* Mobile: 1 column */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .photo-grid-4 {
         grid-template-columns: 1fr;
     }
@@ -610,7 +610,7 @@ figcaption {
 /* ─── BLOG SECTION LAYOUT WITH SIDEBAR ─── */
 .blog-section {
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 800px) 170px 1fr;
+    grid-template-columns: 0px minmax(800px, 1000px) 320px 0px;
     gap: 2rem;
     padding: 2rem;
 }
@@ -625,7 +625,7 @@ figcaption {
 
 .blog-content {
     min-width: 0;
-    max-width: 800px;
+    max-width: 1000px;
     overflow: hidden;
 }
 
@@ -749,7 +749,6 @@ figcaption {
 
 /* Sidebar */
 .blog-sidebar {
-    position: sticky;
     top: 2rem;
     height: fit-content;
 }
@@ -911,7 +910,7 @@ a.tag {
 
 .game-page .game-description {
     color: #a0a0a0;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto 1.5rem auto;
     font-size: 1rem;
     line-height: 1.6;
