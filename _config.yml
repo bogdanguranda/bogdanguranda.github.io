@@ -28,24 +28,27 @@ defaults:
 nav:
   - title: Contact
     url: /
-  - title: Games
-    url: /games/
+  - title: Apps
+    url: /apps/
     subnav:
-      - title: Logikids (Bacherlor's Thesis)
-        url: /games/logikids/
-  - title: Trading
-    url: /trading/
-    subnav:
-      - title: Trading Algo
-        url: /trading/trading-algo/
-      - title: Trading Assistant
-        url: /trading/trading-assistant/
-      - title: Trading Assistant Discord Bot
-        url: /trading/trading-assistant-discord-bot/
-      - title: Trading Risk Manager
-        url: /trading/trading-risk-manager/
-      - title: Trading Quotes X
-        url: /trading/trading-quotes-x/
+      - title: Games
+        url: /apps/games/
+        subnav:
+          - title: Logikids (Bachelor's Thesis)
+            url: /apps/games/logikids/
+      - title: Trading
+        url: /apps/trading/
+        subnav:
+          - title: Trading Algo
+            url: /apps/trading/trading-algo/
+          - title: Trading Assistant
+            url: /apps/trading/trading-assistant/
+          - title: Trading Assistant Discord Bot
+            url: /apps/trading/trading-assistant-discord-bot/
+          - title: Trading Risk Manager
+            url: /apps/trading/trading-risk-manager/
+          - title: Trading Quotes X
+            url: /apps/trading/trading-quotes-x/
   - title: Blog
     url: /blog/
     subnav:
