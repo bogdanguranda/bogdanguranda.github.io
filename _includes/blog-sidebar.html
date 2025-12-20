@@ -32,12 +32,12 @@
     {% endfor %}
     {% assign category_tags = category_tags | sort %}
 
-    {% if category_tags.size > 0 %}
+    {% if category_tags.size > 0 and page.layout != "blog-post" %}
     <div class="sidebar-section">
         <h3>Tags</h3>
         <div class="tag-cloud">
             {% for tag in category_tags %}
-            <a href="{{ current_path }}?tag={{ tag | slugify }}" class="tag">{{ tag }}</a>
+            <span class="tag clickable" data-tag="{{ tag }}">{{ tag }}</span>
             {% endfor %}
         </div>
     </div>

@@ -815,9 +815,19 @@ a.tag {
     text-decoration: none;
 }
 
+.tag.clickable {
+    cursor: pointer;
+}
+
 .tag:hover {
     background: #30363d;
     color: #58a6ff;
+    border-color: #58a6ff;
+}
+
+.tag.selected {
+    background: #58a6ff;
+    color: #0d1117;
     border-color: #58a6ff;
 }
 

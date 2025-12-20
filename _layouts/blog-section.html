@@ -53,7 +53,7 @@ layout: base
                 {% if post.tags %}
                 <div class="post-tags">
                     {% for tag in post.tags %}
-                    <a href="/blog/?tag={{ tag | slugify }}" class="tag">{{ tag }}</a>
+                    <span class="tag clickable" data-tag="{{ tag }}">{{ tag }}</span>
                     {% endfor %}
                 </div>
                 {% endif %}
@@ -61,6 +61,75 @@ layout: base
             {% endfor %}
         </div>
         {% endif %}
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const urlParams = new URLSearchParams(window.location.search);
+                let selectedTags = urlParams.get('tags') ? urlParams.get('tags').split(',').map(t => t.trim()) : [];
+
+                function updateURL() {
+                    const newParams = new URLSearchParams();
+                    if (selectedTags.length > 0) {
+                        newParams.set('tags', selectedTags.join(','));
+                    }
+                    const newURL = window.location.pathname + (newParams.toString() ? '?' + newParams.toString() : '');
+                    window.history.replaceState(null, '', newURL);
+                }
+
+                function updateHeading() {
+                    const heading = document.querySelector('.blog-posts-list h2');
+                    if (selectedTags.length > 0) {
+                        heading.textContent = 'Posts filtered by tags: ' + selectedTags.join(', ');
+                    } else {
+                        heading.textContent = 'Posts';
+                    }
+                }
+
+                function filterPosts() {
+                    const articles = document.querySelectorAll('.blog-post-preview');
+                    articles.forEach(article => {
+                        const postTags = Array.from(article.querySelectorAll('.tag')).map(el => el.textContent.trim());
+                        const hasAllTags = selectedTags.every(tag => postTags.includes(tag));
+                        article.style.display = hasAllTags || selectedTags.length === 0 ? '' : 'none';
+                    });
+                }
+
+                function highlightTags() {
+                    const allTags = document.querySelectorAll('.tag');
+                    allTags.forEach(tagEl => {
+                        const tagText = tagEl.textContent.trim();
+                        if (selectedTags.includes(tagText)) {
+                            tagEl.classList.add('selected');
+                        } else {
+                            tagEl.classList.remove('selected');
+                        }
+                    });
+                }
+
+                // Initial setup
+                updateHeading();
+                filterPosts();
+                highlightTags();
+
+                // Add click handlers
+                const clickableTags = document.querySelectorAll('.clickable.tag');
+                clickableTags.forEach(tagEl => {
+                    tagEl.addEventListener('click', function () {
+                        const tag = this.textContent.trim();
+                        const index = selectedTags.indexOf(tag);
+                        if (index > -1) {
+                            selectedTags.splice(index, 1); // remove
+                        } else {
+                            selectedTags.push(tag); // add
+                        }
+                        updateURL();
+                        updateHeading();
+                        filterPosts();
+                        highlightTags();
+                    });
+                });
+            });
+        </script>
 
         {% if content == "" or content == nil or content == blank %}
         {% unless posts.size > 0 or page.toc %}
