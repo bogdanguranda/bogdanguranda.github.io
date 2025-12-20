@@ -1,6 +1,4 @@
 <aside class="blog-sidebar">
-    <!-- Categories removed -->
-
     {% assign current_path = page.permalink | default: page.url %}
     {% assign path_parts = current_path | split: "/" %}
     {% assign current_category = path_parts[2] %}
@@ -54,6 +52,63 @@
         {% assign current_post_year = page.date | date: "%Y" %}
         {% assign current_post_month = page.date | date: "%B" %}
         {% endif %}
+
+        {%- comment -%} Pre-calculate all year and month counts {%- endcomment -%}
+        {% assign year_month_counts = "" | split: "" %}
+        {% for post in sorted_posts %}
+        {% assign post_year = post.date | date: "%Y" %}
+        {% assign post_month = post.date | date: "%B" %}
+        {% assign year_month_key = post_year | append: "|" | append: post_month %}
+
+        {% assign found = false %}
+        {% for item in year_month_counts %}
+        {% assign item_parts = item | split: ":" %}
+        {% if item_parts[0] == year_month_key %}
+        {% assign found = true %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+
+        {% if found == false %}
+        {% assign count = 0 %}
+        {% for p in sorted_posts %}
+        {% assign p_year = p.date | date: "%Y" %}
+        {% assign p_month = p.date | date: "%B" %}
+        {% if p_year == post_year and p_month == post_month %}
+        {% assign count = count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% assign count_entry = year_month_key | append: ":" | append: count %}
+        {% assign year_month_counts = year_month_counts | push: count_entry %}
+        {% endif %}
+        {% endfor %}
+
+        {% assign year_counts = "" | split: "" %}
+        {% for post in sorted_posts %}
+        {% assign post_year = post.date | date: "%Y" %}
+
+        {% assign found = false %}
+        {% for item in year_counts %}
+        {% assign item_parts = item | split: ":" %}
+        {% if item_parts[0] == post_year %}
+        {% assign found = true %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+
+        {% if found == false %}
+        {% assign count = 0 %}
+        {% for p in sorted_posts %}
+        {% assign p_year = p.date | date: "%Y" %}
+        {% if p_year == post_year %}
+        {% assign count = count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% assign count_entry = post_year | append: ":" | append: count %}
+        {% assign year_counts = year_counts | push: count_entry %}
+        {% endif %}
+        {% endfor %}
+
         <div class="archive">
             {% assign current_year = "" %}
             {% assign current_month = "" %}
@@ -68,16 +123,22 @@
     </div>
     </div>
     {% endif %}
+
+    {%- comment -%} Get year total from pre-calculated counts {%- endcomment -%}
     {% assign year_total = 0 %}
-    {% for p in sorted_posts %}
-    {% if p.date | date: "%Y" == post_year %}
-    {% assign year_total = year_total | plus: 1 %}
+    {% for item in year_counts %}
+    {% assign item_parts = item | split: ":" %}
+    {% if item_parts[0] == post_year %}
+    {% assign year_total = item_parts[1] %}
+    {% break %}
     {% endif %}
     {% endfor %}
+
     {% assign year_expanded = false %}
     {% if post_year == current_post_year %}
     {% assign year_expanded = true %}
     {% endif %}
+
     <div class="archive-year">
         <div class="year-toggle"
             onclick="this.parentElement.querySelector('.year-content').style.display = this.parentElement.querySelector('.year-content').style.display === 'none' ? 'block' : 'none'; this.querySelector('.toggle-icon').textContent = this.parentElement.querySelector('.year-content').style.display === 'none' ? '▶' : '▼';">
@@ -88,22 +149,30 @@
             {% assign current_year = post_year %}
             {% assign current_month = "" %}
             {% endif %}
+
             {% if post_month != current_month %}
             {% if current_month != "" %}
             </ul>
         </div>
     </div>
     {% endif %}
+
+    {%- comment -%} Get month total from pre-calculated counts {%- endcomment -%}
     {% assign month_total = 0 %}
-    {% for p in sorted_posts %}
-    {% if p.date | date: "%Y" == current_year and p.date | date: "%B" == post_month %}
-    {% assign month_total = month_total | plus: 1 %}
+    {% assign year_month_key = post_year | append: "|" | append: post_month %}
+    {% for item in year_month_counts %}
+    {% assign item_parts = item | split: ":" %}
+    {% if item_parts[0] == year_month_key %}
+    {% assign month_total = item_parts[1] %}
+    {% break %}
     {% endif %}
     {% endfor %}
+
     {% assign month_expanded = false %}
     {% if post_month == current_post_month and current_year == current_post_year %}
     {% assign month_expanded = true %}
     {% endif %}
+
     <div class="archive-month">
         <div class="month-toggle"
             onclick="this.parentElement.querySelector('.month-posts').style.display = this.parentElement.querySelector('.month-posts').style.display === 'none' ? 'block' : 'none'; this.querySelector('.toggle-icon').textContent = this.parentElement.querySelector('.month-posts').style.display === 'none' ? '▶' : '▼';">
@@ -113,8 +182,10 @@
         <ul class="month-posts" style="display: {% if month_expanded %}block{% else %}none{% endif %};">
             {% assign current_month = post_month %}
             {% endif %}
+
             <li><a href="{{ post.url }}">{{ post.date | date: "%a %d" }} - {{ post.title }}</a></li>
             {% endfor %}
+
             {% if current_month != "" %}
         </ul>
     </div>
