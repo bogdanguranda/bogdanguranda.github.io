@@ -56,7 +56,7 @@ body {
 
 /* Only the homepage (About) gets the centered flex layout */
 .about {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,15 +104,22 @@ body {
     letter-spacing: 0.5px;
 }
 
+.about .links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
 .about .links a {
     color: #58a6ff;
     text-decoration: none;
-    font-size: 1.2rem;
-    margin: 0 0.8rem;
+    font-size: 1.8rem;
+    transition: color 0.2s ease;
 }
 
 .about .links a:hover {
-    text-decoration: underline;
+    color: #79c0ff;
 }
 
 /* ─── ALL OTHER PAGES (Coding, Travels, etc.) ─── */

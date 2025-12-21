@@ -6,8 +6,9 @@ permalink: pretty
 
 author:
   name: Bogdan Guranda
-  github: bogdanguranda
   linkedin: bogdan-guranda
+  github: bogdanguranda
+  x: bogdanguranda
 
 collections:
   pages:
@@ -24,7 +25,6 @@ defaults:
     values:
       layout: category
 
-# ─── Navigation ───
 nav:
   - title: Contact
     url: /
