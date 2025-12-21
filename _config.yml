@@ -1,7 +1,7 @@
 title: Bogdan Guranda
 description: Personal website
 baseurl: ""
-url: "https://bogdanguranda.github.io"
+url: "https://bogdanguranda.github.io/"
 permalink: pretty
 
 author:
@@ -36,31 +36,18 @@ nav:
         subnav:
           - title: Logikids (Bachelor's Thesis)
             url: /apps/games/logikids/
-      - title: Trading
-        url: /apps/trading/
+      - title: Finance
+        url: /apps/finance/
         subnav:
           - title: Trading Aphorisms
-            url: /apps/trading/trading-aphorisms/
+            url: /apps/finance/trading-aphorisms/
           - title: Trading Assistant Discord Bot
-            url: /apps/trading/trading-assistant-discord-bot/
+            url: /apps/finance/trading-assistant-discord-bot/
           - title: Trading Risk Manager
-            url: /apps/trading/trading-risk-manager/
+            url: /apps/finance/trading-risk-manager/
           - title: Trading Assistant
-            url: /apps/trading/trading-assistant/
+            url: /apps/finance/trading-assistant/
           - title: Trading Algo
-            url: /apps/trading/trading-algo/
+            url: /apps/finance/trading-algo/
   - title: Blog
     url: /blog/
-    subnav:
-      - title: Trading
-        url: /blog/trading/
-      - title: Coding
-        url: /blog/coding/
-      - title: History
-        url: /blog/history/
-      - title: Politics
-        url: /blog/politics/
-      - title: Books
-        url: /blog/books/
-      - title: Travels
-        url: /blog/travels/

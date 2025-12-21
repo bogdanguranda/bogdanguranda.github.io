@@ -5,20 +5,11 @@
 
     {% assign all_blog_posts = site.pages | where: "layout", "blog-post" %}
     {% assign category_posts = "" | split: "" %}
-    {% if current_category and current_category != "" %}
-    {% assign category_segment = "/" | append: current_category | append: "/" %}
-    {% for post in all_blog_posts %}
-    {% if post.permalink contains category_segment and post.date %}
-    {% assign category_posts = category_posts | push: post %}
-    {% endif %}
-    {% endfor %}
-    {% else %}
     {% for post in all_blog_posts %}
     {% if post.permalink contains "/blog/" and post.date %}
     {% assign category_posts = category_posts | push: post %}
     {% endif %}
     {% endfor %}
-    {% endif %}
 
     {% assign category_tags = "" | split: "" %}
     {% for post in category_posts %}
@@ -44,7 +35,7 @@
     {% endif %}
 
     <div class="sidebar-section">
-        <h3>Blog Archive</h3>
+        <h3>Archive</h3>
         {% assign sorted_posts = category_posts | sort: "date" | reverse %}
         {% assign current_post_year = "" %}
         {% assign current_post_month = "" %}
@@ -197,4 +188,5 @@
     {% endif %}
     </div>
     </div>
+
 </aside>
