@@ -1,0 +1,52 @@
+title: Bogdan Guranda
+description: Personal website
+baseurl: ""
+url: "https://bogdanguranda.github.io/"
+permalink: pretty
+
+author:
+  name: Bogdan Guranda
+  linkedin: bogdan-guranda
+  github: bogdanguranda
+
+collections:
+  pages:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: category
+  - scope:
+      path: ""
+    values:
+      layout: category
+
+nav:
+  - title: Contact
+    url: /
+  - title: Apps
+    url: /apps/
+    subnav:
+      - title: Games
+        url: /apps/games/
+        subnav:
+          - title: Logikids (Bachelor's Thesis)
+            url: /apps/games/logikids/
+      - title: Finance
+        url: /apps/finance/
+        subnav:
+          - title: Trading Aphorisms
+            url: /apps/finance/trading-aphorisms/
+          - title: Trading Assistant Discord Bot
+            url: /apps/finance/trading-assistant-discord-bot/
+          - title: Trading Risk Manager
+            url: /apps/finance/trading-risk-manager/
+          - title: Trading Assistant
+            url: /apps/finance/trading-assistant/
+          - title: Trading Algo
+            url: /apps/finance/trading-algo/
+  - title: Blog
+    url: /blog/
