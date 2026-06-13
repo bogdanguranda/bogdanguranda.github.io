@@ -2,5 +2,88 @@
 title: Trading Assistant
 layout: category
 permalink: /apps/finance/trading-assistant/
-description: "Trading assistant tool."
+description: "Trading Assistant — Desktop trading assistant for managing trade data and market analysis."
 ---
+
+<h2>Trading Assistant</h2>
+<p>Desktop trading assistant built with Python and PyQt6 for managing trade data, visualizing historical markets, and
+    exporting reporting-ready output. The app is designed to support broker transaction imports, chart-based trade
+    analysis, configurable scanners, and multiple export targets while keeping settings and secrets persisted locally.
+</p>
+
+<h2>What it does</h2>
+<ul>
+    <li>Import and normalize transactions from different broker formats</li>
+    <li>Build historical charts with OHLC data, portfolio executions, and trade markers</li>
+    <li>Export transformed trade data to CSV and Google Sheets</li>
+    <li>Manage app settings, themes, and API credentials in a local encrypted store</li>
+    <li>Run background tasks safely using PyQt worker threads for downloads, scans, and exports</li>
+</ul>
+
+<h2>What it will be able to do</h2>
+<p>When fully implemented, the app aims to provide:</p>
+<ul>
+    <li>a complete transaction import/export pipeline for brokers like Alpaca, Interactive Brokers, TradeZero, and
+        others</li>
+    <li>a historical data explorer with layered chart overlays and execution markers</li>
+    <li>an extendable scanner and strategy builder for screening symbols and backtesting ideas</li>
+    <li>seamless Google Sheets integration for sharing reports and trade summaries</li>
+    <li>persistent local settings and encrypted secret storage for API keys</li>
+</ul>
+
+<h2>How to run</h2>
+<p><strong>1. Install Python version specified in .python-version file</strong> (you can use pyenv for that)</p>
+<pre><code>brew install pyenv
+
+pyenv install 3.13.9
+pyenv local 3.13.9 # Sets it for this project
+
+poetry env use 3.13.9
+poetry lock && poetry install
+</code></pre>
+
+<p><strong>2. Create full app</strong></p>
+<pre><code>poetry run pyinstaller live.spec --noconfirm
+</code></pre>
+<p>Run from: <code>dist/Trading Assistant/Trading Assistant.exe</code></p>
+
+<p><strong>3. Upload to Github releases with naming convention, example:</strong></p>
+<pre><code>trading-assistant-v3.0.0.zip
+</code></pre>
+
+<h2>Architecture</h2>
+<ul>
+    <li><strong>UI Framework</strong>: PyQt6 desktop interface with modular tabs and reusable components</li>
+    <li><strong>Plotting</strong>: pyqtgraph and Plotly are used for interactive chart rendering</li>
+    <li><strong>Data Processing</strong>: pandas and pyarrow for tabular transformation, Excel support via openpyxl</li>
+    <li><strong>Broker APIs</strong>: Alpaca (<code>alpaca-py</code>) and Interactive Brokers (<code>ibapi</code>)
+        integration paths</li>
+    <li><strong>Web data</strong>: <code>requests</code> and BeautifulSoup for fundamentals and web-based data scraping
+    </li>
+    <li><strong>Persistence</strong>: SQLite for settings, plus AES encryption for secrets using
+        <code>cryptography</code></li>
+    <li><strong>Packaging</strong>: PyInstaller to build a self-contained desktop distributable</li>
+</ul>
+
+<h2>Key Features</h2>
+<ul>
+    <li><strong>Data Transformation</strong>: Import, normalize, and export broker transactions</li>
+    <li><strong>Historical Charts</strong>: Visualize OHLC data and trade execution markers</li>
+    <li><strong>Theme Support</strong>: Multiple themes with dynamic switching</li>
+    <li><strong>Settings Management</strong>: Observable models with automatic database persistence</li>
+    <li><strong>Encrypted Secrets</strong>: AES-256-CBC encryption for API keys and sensitive data</li>
+</ul>
+
+<h2>Screenshots</h2>
+<figure class="post-image-small">
+    <img src="/assets/apps/finance/trading-assistant/screenshot1.png" alt="Trading Assistant screenshot 1"
+        loading="lazy">
+</figure>
+<figure class="post-image-small">
+    <img src="/assets/apps/finance/trading-assistant/screenshot2.png" alt="Trading Assistant screenshot 2"
+        loading="lazy">
+</figure>
+<figure class="post-image-small">
+    <img src="/assets/apps/finance/trading-assistant/screenshot3.png" alt="Trading Assistant screenshot 3"
+        loading="lazy">
+</figure>
