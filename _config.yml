@@ -38,14 +38,12 @@ nav:
       - title: Finance
         url: /apps/finance/
         subnav:
-          - title: Trading Assistant Discord Bot
-            url: /apps/finance/trading-assistant-discord-bot/
-          - title: Trading Risk Manager
-            url: /apps/finance/trading-risk-manager/
+          - title: Deep Dive
+            url: /apps/finance/deep-dive/
           - title: Trading Assistant
             url: /apps/finance/trading-assistant/
-          - title: Trading Algo
-            url: /apps/finance/trading-algo/
+          - title: Trading Assistant Discord Bot
+            url: /apps/finance/trading-assistant-discord-bot/
       - title: Other
         url: /apps/other/
         subnav:
