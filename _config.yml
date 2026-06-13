@@ -25,21 +25,19 @@ defaults:
       layout: category
 
 nav:
-  - title: Contact
-    url: /
   - title: Apps
     url: /apps/
     subnav:
       - title: Games
         url: /apps/games/
         subnav:
-          - title: Logikids (Bachelor's Thesis)
+          - title: Logikids (Bachelor's Degree Thesis)
             url: /apps/games/logikids/
+          - title: Sokobug
+            url: /apps/games/sokobug/
       - title: Finance
         url: /apps/finance/
         subnav:
-          - title: Trading Aphorisms
-            url: /apps/finance/trading-aphorisms/
           - title: Trading Assistant Discord Bot
             url: /apps/finance/trading-assistant-discord-bot/
           - title: Trading Risk Manager
@@ -48,5 +46,12 @@ nav:
             url: /apps/finance/trading-assistant/
           - title: Trading Algo
             url: /apps/finance/trading-algo/
+      - title: Other
+        url: /apps/other/
+        subnav:
+          - title: Aphorisms Generator
+            url: /apps/other/aphorisms-generator/
   - title: Blog
     url: /blog/
+  - title: Contact
+    url: /
